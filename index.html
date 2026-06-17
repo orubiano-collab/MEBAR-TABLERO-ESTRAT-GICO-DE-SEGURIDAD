@@ -42,8 +42,8 @@
   --green-brd:rgba(14,159,110,.25);
   /* Texto */
   --text:     #1C2B3A;
-  --muted:    #51687E;
-  --dim:      #97A6B5;
+  --muted:    #3D5568;
+  --dim:      #5A6878;
   /* Bordes */
   --border:   rgba(0,40,85,.12);
   --border2:  rgba(0,40,85,.06);
@@ -196,7 +196,7 @@ body{background:var(--bg);color:var(--text);font-family:var(--font-body);font-si
 .sec-tit{
   font-family:var(--font-display);font-size:1em;font-weight:700;
   letter-spacing:.08em;text-transform:uppercase;
-  color:rgba(0,40,85,.45);margin-bottom:11px;
+  color:rgba(0,40,85,.70);margin-bottom:11px;
   display:flex;align-items:center;gap:10px;
 }
 .sec-tit::after{content:'';flex:1;height:1px;background:var(--border);}
@@ -410,7 +410,7 @@ const PEND_IDX = L.barrs.indexOf('BARRIO PENDIENTE POR ASIGNAR');
 const DIA_N=['Lunes','Martes','Miércoles','Jueves','Viernes','Sábado','Domingo'];
 const EDAD_L=['0–17 años','18–30 años','31–50 años','51+ años','Sin dato'];
 const GEN_L=['Masculino','Femenino','No reportado'];
-const DIST_COLORS=['#7c3aed','#c0392b','#2980b9','#e67e22','#16a085'];
+const DIST_COLORS=['#6B21C0','#B0120B','#0057A8','#B85C00','#0A7A52'];
 const DIST_SHORT=['D5 METROPOLITANA','D4 SUR OCCIDENTE','D2 NORTE-CENTRO','D3 SUR ORIENTE','D1 RIOMAR'];
 
 const TEMA_COLORS={
@@ -454,7 +454,7 @@ const TP={
       borderColor:'rgba(0,40,85,.15)',
       borderWidth:1,
       titleColor:'#002855',
-      bodyColor:'#51687E',
+      bodyColor:'#3D5568',
       titleFont:{family:'Barlow Condensed, sans-serif',weight:'700',size:13},
       bodyFont:{family:'IBM Plex Mono, monospace',size:11},
       padding:10,
@@ -462,8 +462,8 @@ const TP={
     }
   },
   scales:{
-    x:{grid:{color:'rgba(28,46,80,.6)'},ticks:{color:'rgba(205,216,240,.55)'}},
-    y:{grid:{color:'rgba(28,46,80,.6)'},ticks:{color:'rgba(205,216,240,.55)'}}
+    x:{grid:{color:'rgba(0,40,85,.1)'},ticks:{color:'rgba(28,43,58,.7)'}},
+    y:{grid:{color:'rgba(0,40,85,.1)'},ticks:{color:'rgba(28,43,58,.7)'}}
   }
 };
 
@@ -639,13 +639,13 @@ function renderTrend(d,ss,se){
       responsive:true,maintainAspectRatio:false,
       plugins:{
         ...TP.plugins,
-        legend:{display:true,position:'top',labels:{color:'rgba(205,216,240,.7)',font:{size:11},boxWidth:14,padding:16}},
+        legend:{display:true,position:'top',labels:{color:'rgba(28,43,58,.75)',font:{size:11},boxWidth:14,padding:16}},
         tooltip:{...TP.plugins.tooltip,mode:'index',intersect:false}
       },
       scales:{
-        x:{...TP.scales.x,ticks:{...TP.scales.x.ticks,maxTicksLimit:26,font:{size:9}}},
-        y:{...TP.scales.y,beginAtZero:true,title:{display:true,text:'Delitos / semana',color:'rgba(205,216,240,.4)',font:{size:10}}},
-        y2:{position:'right',beginAtZero:true,grid:{display:false},ticks:{color:'rgba(255,68,68,.5)',font:{size:9}},title:{display:true,text:'Homicidios',color:'rgba(255,68,68,.4)',font:{size:9}}}
+        x:{...TP.scales.x,ticks:{...TP.scales.x.ticks,maxTicksLimit:26,color:'rgba(28,43,58,.65)',font:{size:9}}},
+        y:{...TP.scales.y,beginAtZero:true,title:{display:true,text:'Delitos / semana',color:'rgba(28,43,58,.55)',font:{size:10}}},
+        y2:{position:'right',beginAtZero:true,grid:{display:false},ticks:{color:'rgba(192,57,43,.75)',font:{size:9}},title:{display:true,text:'Homicidios',color:'rgba(192,57,43,.7)',font:{size:9}}}
       }
     }
   });
@@ -706,10 +706,10 @@ function renderHoras(d,N){
 
   // Franja totals
   const franjas=[
-    {label:'MADRUGADA',range:[0,5],color:'rgba(155,89,182,.7)',bg:'rgba(142,68,173,.12)'},
-    {label:'MAÑANA',range:[6,11],color:'rgba(41,128,185,.7)',bg:'rgba(41,128,185,.12)'},
-    {label:'TARDE',range:[12,17],color:'rgba(230,126,34,.7)',bg:'rgba(230,126,34,.12)'},
-    {label:'NOCHE',range:[18,23],color:'rgba(192,57,43,.7)',bg:'rgba(192,57,43,.12)'},
+    {label:'MADRUGADA',range:[0,5],color:'#7D3C98',bg:'rgba(125,60,152,.12)'},
+    {label:'MAÑANA',range:[6,11],color:'#0057A8',bg:'rgba(0,87,168,.1)'},
+    {label:'TARDE',range:[12,17],color:'#B85C00',bg:'rgba(224,122,40,.12)'},
+    {label:'NOCHE',range:[18,23],color:'#C0392B',bg:'rgba(192,57,43,.12)'},
   ];
 
   const frRow=document.getElementById('frRow');
@@ -749,7 +749,7 @@ function renderTema(d,N){
       responsive:true,maintainAspectRatio:false,
       cutout:'62%',
       plugins:{
-        legend:{display:true,position:'right',labels:{color:'rgba(205,216,240,.7)',font:{size:10},boxWidth:11,padding:8}},
+        legend:{display:true,position:'right',labels:{color:'rgba(28,43,58,.75)',font:{size:10},boxWidth:11,padding:8}},
         tooltip:{...TP.plugins.tooltip,callbacks:{label:ctx=>`${ctx.label}: ${ctx.parsed.toLocaleString('es-CO')} (${pct(ctx.parsed,N)})`}}
       }
     }
@@ -770,8 +770,8 @@ function renderMod(d,N){
     options:{...TP,responsive:true,maintainAspectRatio:false,indexAxis:'y',
       plugins:{...TP.plugins,tooltip:{...TP.plugins.tooltip,callbacks:{label:ctx=>`${ctx.parsed.x.toLocaleString('es-CO')} (${pct(ctx.parsed.x,N)})`}}},
       scales:{
-        x:{...TP.scales.x,beginAtZero:true,ticks:{...TP.scales.x.ticks,font:{size:9}}},
-        y:{...TP.scales.y,ticks:{...TP.scales.y.ticks,font:{size:9}}}
+        x:{...TP.scales.x,beginAtZero:true,ticks:{...TP.scales.x.ticks,color:'rgba(28,43,58,.7)',font:{size:9}}},
+        y:{...TP.scales.y,ticks:{...TP.scales.y.ticks,color:'rgba(28,43,58,.7)',font:{size:9}}}
       }
     }
   });
@@ -793,8 +793,8 @@ function renderArma(d,N){
     options:{...TP,responsive:true,maintainAspectRatio:false,indexAxis:'y',
       plugins:{...TP.plugins,tooltip:{...TP.plugins.tooltip,callbacks:{label:ctx=>`${ctx.parsed.x.toLocaleString('es-CO')} (${pct(ctx.parsed.x,N)})`}}},
       scales:{
-        x:{...TP.scales.x,beginAtZero:true,ticks:{...TP.scales.x.ticks,font:{size:9}}},
-        y:{...TP.scales.y,ticks:{...TP.scales.y.ticks,font:{size:9}}}
+        x:{...TP.scales.x,beginAtZero:true,ticks:{...TP.scales.x.ticks,color:'rgba(28,43,58,.7)',font:{size:9}}},
+        y:{...TP.scales.y,ticks:{...TP.scales.y.ticks,color:'rgba(28,43,58,.7)',font:{size:9}}}
       }
     }
   });
@@ -814,8 +814,8 @@ function renderSitio(d,N){
     options:{...TP,responsive:true,maintainAspectRatio:false,indexAxis:'y',
       plugins:{...TP.plugins,tooltip:{...TP.plugins.tooltip,callbacks:{label:ctx=>`${ctx.parsed.x.toLocaleString('es-CO')} (${pct(ctx.parsed.x,N)})`}}},
       scales:{
-        x:{...TP.scales.x,beginAtZero:true,ticks:{...TP.scales.x.ticks,font:{size:9}}},
-        y:{...TP.scales.y,ticks:{...TP.scales.y.ticks,font:{size:9}}}
+        x:{...TP.scales.x,beginAtZero:true,ticks:{...TP.scales.x.ticks,color:'rgba(28,43,58,.7)',font:{size:9}}},
+        y:{...TP.scales.y,ticks:{...TP.scales.y.ticks,color:'rgba(28,43,58,.7)',font:{size:9}}}
       }
     }
   });
@@ -834,7 +834,7 @@ function renderGenero(d,N){
     options:{
       responsive:true,maintainAspectRatio:false,cutout:'68%',
       plugins:{
-        legend:{display:true,position:'bottom',labels:{color:'rgba(205,216,240,.7)',font:{size:10},boxWidth:11,padding:8}},
+        legend:{display:true,position:'bottom',labels:{color:'rgba(28,43,58,.75)',font:{size:10},boxWidth:11,padding:8}},
         tooltip:{...TP.plugins.tooltip,callbacks:{label:ctx=>`${ctx.label}: ${ctx.parsed.toLocaleString('es-CO')} (${pct(ctx.parsed,N)})`}}
       }
     }
@@ -967,7 +967,7 @@ function renderRecos(d,N){
   const peakDia=topN(cnt(d.map(r=>r[_DIA])),1)[0];
   const peakH=topN(cnt(d.filter(r=>r[_H]>=0&&r[_H]<=23).map(r=>r[_H])),1)[0];
   recos.push({
-    color:'#e74c3c',num:'01',tag:'OPERATIVO TÁCTICO',
+    color:'#C0392B',num:'01',tag:'OPERATIVO TÁCTICO',
     tit:`Reforzar patrullaje en ${topBName}`,
     body:`Concentra ${topB?topB[1].toLocaleString('es-CO'):'n/a'} delitos registrados. Implementar patrullaje a pie con presencia visible los ${peakDia?DIA_N[peakDia[0]]:'viernes'} y sábados de 18:00 a 02:00. Articular con JAC y comerciantes del sector.`
   });
@@ -978,7 +978,7 @@ function renderRecos(d,N){
   const extD=cnt(d.filter(r=>r[_T]===extIdx).map(r=>r[_D]));
   const topExtD=topN(extD,1)[0];
   recos.push({
-    color:'#00c9ff',num:'02',tag:'CAMPAÑA PREVENCIÓN',
+    color:'#0057A8',num:'02',tag:'CAMPAÑA PREVENCIÓN',
     tit:`Campaña anti-extorsión en Distrito ${DIST_SHORT[topExtD?topExtD[0]:2]}`,
     body:`${extTot} casos de extorsión registrados en 2025. El ${pct(d.filter(r=>r[_T]===extIdx&&r[_MOD]===L.mods.indexOf('CLASICA')).length,extTot)} usa llamada telefónica. Activar línea de denuncia 147, campañas en redes y mesas con gremios empresariales.`
   });
@@ -987,7 +987,7 @@ function renderRecos(d,N){
   const vifIdx=L.temas.indexOf('VIOLENCIA INTRAFAMILIAR');
   const vifTot=d.filter(r=>r[_T]===vifIdx).length;
   recos.push({
-    color:'#e91e63',num:'03',tag:'PROTECCIÓN VÍCTIMAS',
+    color:'#A8215A',num:'03',tag:'PROTECCIÓN VÍCTIMAS',
     tit:'Plan de atención integral a VIF y violencia de género',
     body:`${vifTot.toLocaleString('es-CO')} casos de violencia intrafamiliar (2° delito más frecuente). Fortalecer casas de refugio, activar alerta temprana en CAIs, capacitar a Comisarías de Familia y garantizar medidas de protección en 24h.`
   });
@@ -996,7 +996,7 @@ function renderRecos(d,N){
   const afArma=L.armas.indexOf('ARMA DE FUEGO');
   const afTot=d.filter(r=>r[_A]===afArma).length;
   recos.push({
-    color:'#f1c40f',num:'04',tag:'CONTROL DE ARMAS',
+    color:'#9C7A2E',num:'04',tag:'CONTROL DE ARMAS',
     tit:'Operativos de control de armas de fuego ilegales',
     body:`${afTot.toLocaleString('es-CO')} delitos cometidos con arma de fuego (${pct(afTot,N)} del total). Concentrar operativos de registro y control en zonas de homicidio. Solicitar apoyo de la DIJIN para desarticulación de redes de tráfico.`
   });
@@ -1005,7 +1005,7 @@ function renderRecos(d,N){
   const madTot=d.filter(r=>r[_H]>=0&&r[_H]<=5).length;
   const madPct=pct(madTot,N);
   recos.push({
-    color:'#9b59b6',num:'05',tag:'SEGURIDAD NOCTURNA',
+    color:'#7D3C98',num:'05',tag:'SEGURIDAD NOCTURNA',
     tit:'Protocolo reforzado de seguridad en madrugada',
     body:`${madTot.toLocaleString('es-CO')} eventos (${madPct}) ocurren entre 00:00 y 05:00. Implementar operativos nocturnos permanentes en corredores de alta incidencia, coordinación con establecimientos de entretenimiento y cierre de expendios de alcohol en horas críticas.`
   });
