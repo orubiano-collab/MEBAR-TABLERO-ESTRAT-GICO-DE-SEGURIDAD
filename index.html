@@ -395,7 +395,7 @@ body{background:var(--bg);color:var(--text);font-family:var(--font-body);font-si
     <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzNDAgODAiPgogIDwhLS0gQXJjL3N3b29zaCBmb3JtaW5nIHRoZSBHIHN5bWJvbCAtLT4KICA8cGF0aCBkPSJNNiw0MCBBMzAsMzAgMCAxLDEgMzYsNzAgTDM2LDU3IEExNywxNyAwIDEsMCAyMyw0MCBaIiBmaWxsPSIjMDAzREE1Ii8+CiAgPHJlY3QgeD0iMjYiIHk9IjM3IiB3aWR0aD0iMTciIGhlaWdodD0iMTEiIHJ4PSIxIiBmaWxsPSIjMDAzREE1Ii8+CiAgPCEtLSBHRVNFRyB3b3JkbWFyayAtLT4KICA8dGV4dCB4PSI3MiIgeT0iMzciIGZvbnQtZmFtaWx5PSInQXJpYWwgQmxhY2snLEFyaWFsLHNhbnMtc2VyaWYiIGZvbnQtd2VpZ2h0PSI5MDAiCiAgICAgICAgZm9udC1zaXplPSIzMSIgZmlsbD0iIzAwM0RBNSIgbGV0dGVyLXNwYWNpbmc9IjEuNSI+R0VTRUc8L3RleHQ+CiAgPCEtLSBUYWdsaW5lIC0tPgogIDx0ZXh0IHg9IjcyIiB5PSI1MyIgZm9udC1mYW1pbHk9IkFyaWFsLHNhbnMtc2VyaWYiIGZvbnQtd2VpZ2h0PSI3MDAiCiAgICAgICAgZm9udC1zaXplPSIxMC4yIiBmaWxsPSIjMDAzREE1IiBsZXR0ZXItc3BhY2luZz0iMC40Ij5HZXN0acOzbiBkZSBsYSBTZWd1cmlkYWQ8L3RleHQ+CiAgPHRleHQgeD0iMjY1IiB5PSI1MyIgZm9udC1mYW1pbHk9IkFyaWFsLHNhbnMtc2VyaWYiIGZvbnQtd2VpZ2h0PSI3MDAiCiAgICAgICAgZm9udC1zaXplPSI5LjIiIGZpbGw9IiMwMDNEQTUiPiAgUy5BLlMuPC90ZXh0Pgo8L3N2Zz4=" alt="GESEG" style="height:22px;width:auto;opacity:.9;">
     <span><b>GESEG · GESTIÓN DE LA SEGURIDAD S.A.S.</b> · Tablero Estratégico MEBAR 2025 · Por: <b>Omar Rubiano Castro</b> · CONVIVE 360 Modelo Aplicado</span>
   </div>
-  <div>Fuente: SIEDCO-Policía Nacional · n=33.602 eventos · Área Metropolitana de Barranquilla</div>
+  <div>Fuente: SIEDCO-Policía Nacional · n=33.602 eventos · Área Metropolitana de Barranquilla · Datos correspondientes al año 2025, extraídos de DB1 - ACTUALIZACIÓN_Datos completos_data.csv</div>
   <div id="fTime"></div>
 </div>
 
@@ -596,45 +596,74 @@ function renderTrend(d,ss,se){
   const semanas=[];
   for(let s=ss;s<=se;s++) semanas.push(s);
 
-  // Total per week
-  const total={};
-  // Top 4 temas by volume for stacked
-  const tc=cnt(d.map(r=>r[_T]));
-  const topT=topN(tc,4).map(e=>+e[0]);
+  // Obtener el índice del tema seleccionado
+  const ft = fState.tema;
+  const isAll = (ft === -1);
 
+  // Calcular total por semana para los datos actuales (filtrados)
+  const total={};
   semanas.forEach(s=>total[s]=0);
   d.forEach(r=>{if(total[r[_S]]!==undefined) total[r[_S]]++;});
 
-  const datasets=[{
-    label:'Total delitos',
-    data:semanas.map(s=>total[s]||0),
-    borderColor:'#e67e22',
-    backgroundColor:'rgba(230,126,34,.12)',
-    fill:true,
-    tension:.35,
-    borderWidth:2,
-    pointRadius:2,
-    pointHoverRadius:5,
-  }];
+  let datasets = [];
+  let chartTitle = 'Tendencia Semanal de Delitos 2025';
+  let y2Enabled = false;
 
-  // Add homicidios line
-  const homIdx=L.temas.indexOf('HOMICIDIO DOLOSO O INTENCIONAL');
-  const homW={};
-  semanas.forEach(s=>homW[s]=0);
-  d.filter(r=>r[_T]===homIdx).forEach(r=>{if(homW[r[_S]]!==undefined)homW[r[_S]]++;});
-  datasets.push({
-    label:'Homicidios',
-    data:semanas.map(s=>homW[s]||0),
-    borderColor:'#ff4444',
-    backgroundColor:'transparent',
-    fill:false,tension:.35,borderWidth:1.5,
-    pointRadius:1.5,pointHoverRadius:4,
-    yAxisID:'y2',
-  });
+  if (isAll) {
+    // Mostrar total y homicidios
+    chartTitle = 'Tendencia Semanal de Delitos 2025 (Todos)';
+    datasets.push({
+      label:'Total delitos',
+      data:semanas.map(s=>total[s]||0),
+      borderColor:'#e67e22',
+      backgroundColor:'rgba(230,126,34,.12)',
+      fill:true,
+      tension:.35,
+      borderWidth:2,
+      pointRadius:2,
+      pointHoverRadius:5,
+    });
+    // homicidios
+    const homIdx=L.temas.indexOf('HOMICIDIO DOLOSO O INTENCIONAL');
+    const homW={};
+    semanas.forEach(s=>homW[s]=0);
+    // Calcular homicidios sobre todos los datos (sin filtrar), o sobre los datos filtrados? Si se filtra por otro delito no habrá homicidios. Pero en "Todos" sí hay.
+    // Como estamos en isAll, d contiene todos los delitos, así que podemos filtrar homicidios dentro de d.
+    d.filter(r=>r[_T]===homIdx).forEach(r=>{if(homW[r[_S]]!==undefined)homW[r[_S]]++;});
+    datasets.push({
+      label:'Homicidios',
+      data:semanas.map(s=>homW[s]||0),
+      borderColor:'#ff4444',
+      backgroundColor:'transparent',
+      fill:false,
+      tension:.35,
+      borderWidth:1.5,
+      pointRadius:1.5,
+      pointHoverRadius:4,
+      yAxisID:'y2',
+    });
+    y2Enabled = true;
+  } else {
+    // Mostrar solo el delito seleccionado
+    const temaNombre = L.temas[ft];
+    chartTitle = `Tendencia Semanal de Delitos - ${temaNombre}`;
+    datasets.push({
+      label: temaNombre,
+      data: semanas.map(s=>total[s]||0),
+      borderColor: '#0057A8',
+      backgroundColor: 'rgba(0,87,168,.15)',
+      fill: true,
+      tension: .35,
+      borderWidth: 2,
+      pointRadius: 2,
+      pointHoverRadius: 5,
+    });
+  }
 
-  mkChart('cTrend',{
+  // Construir configuración de Chart
+  const config = {
     type:'line',
-    data:{labels:semanas.map(s=>`S${s}`),datasets},
+    data:{labels:semanas.map(s=>`S${s}`), datasets},
     options:{...TP,
       responsive:true,maintainAspectRatio:false,
       plugins:{
@@ -645,11 +674,23 @@ function renderTrend(d,ss,se){
       scales:{
         x:{...TP.scales.x,ticks:{...TP.scales.x.ticks,maxTicksLimit:26,color:'rgba(28,43,58,.65)',font:{size:9}}},
         y:{...TP.scales.y,beginAtZero:true,title:{display:true,text:'Delitos / semana',color:'rgba(28,43,58,.55)',font:{size:10}}},
-        y2:{position:'right',beginAtZero:true,grid:{display:false},ticks:{color:'rgba(192,57,43,.75)',font:{size:9}},title:{display:true,text:'Homicidios',color:'rgba(192,57,43,.7)',font:{size:9}}}
       }
     }
-  });
+  };
+
+  if (y2Enabled) {
+    config.options.scales.y2 = {
+      position:'right',
+      beginAtZero:true,
+      grid:{display:false},
+      ticks:{color:'rgba(192,57,43,.75)',font:{size:9}},
+      title:{display:true,text:'Homicidios',color:'rgba(192,57,43,.7)',font:{size:9}}
+    };
+  }
+
+  mkChart('cTrend', config);
 }
+
 
 /* ─── DÍA SEMANA ──────────────────────── */
 function renderDia(d,N){
