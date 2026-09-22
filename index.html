@@ -3,12 +3,12 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>MEBAR 2025-2026 · Tablero Estratégico de Seguridad · GESEG</title>
+<title>Barranquilla 2025-2026 · Tablero Estratégico de Seguridad · OSCC</title>
 <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@300;400;600;700;900&family=Barlow:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;600&display=swap" rel="stylesheet">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.0/chart.umd.min.js"></script>
 <style>
 /* ══════════════════════════════════════
-   GESEG · MEBAR 2025-2026
+   OSCC · BARRANQUILLA · MEBAR 2025-2026
    Tema claro institucional
 ══════════════════════════════════════ */
 :root{
@@ -84,7 +84,7 @@ body{background:var(--bg);color:var(--text);font-family:var(--font-body);font-si
 }
 .tb-left{display:flex;align-items:center;gap:20px;}
 .tb-logo-wrap{display:flex;align-items:center;gap:0;}
-.tb-logo{height:34px;width:auto;display:block;}
+.tb-logo{height:38px;width:auto;display:block;}
 .tb-divv{width:1px;height:30px;background:var(--border);margin:0 4px;}
 .tb-title{font-family:var(--font-display);font-weight:700;font-size:1.3em;letter-spacing:.04em;color:var(--navy);line-height:1.1;}
 .tb-sub{font-size:.7em;color:var(--muted);letter-spacing:.03em;margin-top:1px;}
@@ -261,6 +261,58 @@ body{background:var(--bg);color:var(--text);font-family:var(--font-body);font-si
 }
 .footer b{color:var(--navy);}
 .pdiv{height:1px;background:var(--border);margin:18px 0;}
+
+/* ══ CORTE OFICIAL MEBAR ══ */
+.wrap-corte{padding-bottom:6px;}
+.corte-banner{display:flex;flex-wrap:wrap;align-items:center;gap:10px 22px;background:linear-gradient(90deg,rgba(0,40,85,.045),rgba(200,168,75,.08));border:1px solid var(--border);border-left:4px solid var(--gold);border-radius:10px;padding:11px 18px;margin-bottom:12px;font-size:.78em;color:var(--muted);}
+.corte-banner b{color:var(--navy);}
+.corte-chip{font-family:var(--font-mono);font-size:.92em;font-weight:600;padding:3px 10px;border-radius:14px;background:var(--surface);border:1px solid var(--border);color:var(--navy);white-space:nowrap;}
+.tiles{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin-bottom:12px;}
+@media(max-width:1300px){.tiles{grid-template-columns:repeat(3,1fr);}}
+@media(max-width:700px){.tiles{grid-template-columns:repeat(2,1fr);}}
+.tile{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:12px 14px 11px;cursor:pointer;position:relative;overflow:hidden;box-shadow:var(--sh);transition:transform .15s,border-color .15s,box-shadow .15s;text-align:left;font:inherit;color:inherit;}
+.tile:hover{transform:translateY(-2px);box-shadow:0 6px 22px rgba(0,40,85,.11);}
+.tile::before{content:'';position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--tc,var(--cobalt));}
+.tile.on{border-color:var(--tc,var(--cobalt));box-shadow:0 0 0 2px var(--tc,var(--cobalt)) inset,var(--sh);}
+.tile.total{cursor:default;background:linear-gradient(135deg,#002855,#0057A8);color:#fff;border:none;}
+.tile.total::before{display:none;}
+.tile.total .t-ey,.tile.total .t-prev{color:rgba(255,255,255,.72);}
+.tile.total .t-num{color:#fff;}
+.t-ey{font-family:var(--font-display);font-size:.66em;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--dim);margin-bottom:4px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.t-row{display:flex;align-items:baseline;justify-content:space-between;gap:6px;}
+.t-num{font-family:var(--font-mono);font-size:1.7em;font-weight:600;color:var(--navy);line-height:1.05;}
+.t-prev{font-size:.7em;color:var(--muted);margin-top:3px;}
+.t-prev b{font-family:var(--font-mono);}
+.vchip{font-family:var(--font-mono);font-size:.72em;font-weight:700;padding:2px 7px;border-radius:5px;white-space:nowrap;}
+.vchip.up{background:var(--red-bg);color:var(--red-l);border:1px solid var(--red-brd);}
+.vchip.dn{background:var(--green-bg);color:var(--green);border:1px solid var(--green-brd);}
+.vchip.eq{background:var(--gold-bg);color:var(--gold2);border:1px solid var(--gold-brd);}
+.tile.total .vchip{background:rgba(255,255,255,.16);color:#fff;border:1px solid rgba(255,255,255,.3);}
+.scope{padding:2px 9px;border-radius:20px;font-family:var(--font-display);font-size:.64em;font-weight:700;letter-spacing:.06em;background:var(--cobalt-bg);color:var(--cobalt);border:1px solid var(--cobalt-brd);white-space:nowrap;}
+.scope.m{background:var(--gold-bg);color:var(--gold2);border-color:var(--gold-brd);}
+.xtab{width:100%;border-collapse:collapse;font-size:.78em;}
+.xtab th{font-family:var(--font-display);font-size:.8em;letter-spacing:.08em;text-transform:uppercase;color:var(--dim);text-align:right;padding:6px 10px;border-bottom:1px solid var(--border);font-weight:700;}
+.xtab th:first-child,.xtab td:first-child{text-align:left;}
+.xtab td{padding:6px 10px;border-bottom:1px solid var(--border2);text-align:right;font-family:var(--font-mono);color:var(--text);}
+.xtab td:first-child{font-family:var(--font-body);font-weight:600;}
+.xtab tr.hl td{background:rgba(0,87,168,.05);}
+.xtab tr.tot td{font-weight:700;color:var(--navy);border-top:1px solid var(--border);}
+.xwrap{overflow-x:auto;padding:4px 8px 10px;}
+.hxd{width:100%;border-collapse:separate;border-spacing:3px;font-size:.74em;}
+.hxd th{font-family:var(--font-display);font-size:.82em;font-weight:700;letter-spacing:.05em;color:var(--dim);padding:3px 4px;text-align:center;}
+.hxd th.r{text-align:left;}
+.hxd td{text-align:center;font-family:var(--font-mono);font-weight:600;padding:7px 2px;border-radius:5px;}
+.hxd td.tt{background:transparent;color:var(--navy);}
+.mini-strip{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;padding:0 18px 14px;}
+.mini{background:var(--card2);border:1px solid var(--border2);border-radius:8px;padding:7px 10px;}
+.mini .l{font-family:var(--font-display);font-size:.62em;font-weight:700;letter-spacing:.1em;color:var(--dim);text-transform:uppercase;}
+.mini .v{font-family:var(--font-mono);font-size:1.05em;font-weight:600;color:var(--navy);}
+.brow .bv{min-width:52px;text-align:center;}
+.band-row{display:flex;align-items:center;gap:10px;padding:6px 18px;font-size:.8em;border-bottom:1px solid var(--border2);}
+.band-row .n{flex:1;font-weight:600;}
+.band-row .x{font-family:var(--font-mono);color:var(--muted);min-width:70px;text-align:right;}
+.sec-note{font-size:.74em;color:var(--muted);margin:-6px 0 12px;}
+.records-hdr{margin-top:6px;}
 </style>
 </head>
 <body>
@@ -269,18 +321,106 @@ body{background:var(--bg);color:var(--text);font-family:var(--font-body);font-si
 <div class="topbar">
   <div class="tb-left">
     <div class="tb-logo-wrap">
-      <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzNDAgODAiPgogIDwhLS0gQXJjL3N3b29zaCBmb3JtaW5nIHRoZSBHIHN5bWJvbCAtLT4KICA8cGF0aCBkPSJNNiw0MCBBMzAsMzAgMCAxLDEgMzYsNzAgTDM2LDU3IEExNywxNyAwIDEsMCAyMyw0MCBaIiBmaWxsPSIjMDAzREE1Ii8+CiAgPHJlY3QgeD0iMjYiIHk9IjM3IiB3aWR0aD0iMTciIGhlaWdodD0iMTEiIHJ4PSIxIiBmaWxsPSIjMDAzREE1Ii8+CiAgPCEtLSBHRVNFRyB3b3JkbWFyayAtLT4KICA8dGV4dCB4PSI3MiIgeT0iMzciIGZvbnQtZmFtaWx5PSInQXJpYWwgQmxhY2snLEFyaWFsLHNhbnMtc2VyaWYiIGZvbnQtd2VpZ2h0PSI5MDAiCiAgICAgICAgZm9udC1zaXplPSIzMSIgZmlsbD0iIzAwM0RBNSIgbGV0dGVyLXNwYWNpbmc9IjEuNSI+R0VTRUc8L3RleHQ+CiAgPCEtLSBUYWdsaW5lIC0tPgogIDx0ZXh0IHg9IjcyIiB5PSI1MyIgZm9udC1mYW1pbHk9IkFyaWFsLHNhbnMtc2VyaWYiIGZvbnQtd2VpZ2h0PSI3MDAiCiAgICAgICAgZm9udC1zaXplPSIxMC4yIiBmaWxsPSIjMDAzREE1IiBsZXR0ZXItc3BhY2luZz0iMC40Ij5HZXN0acOzbiBkZSBsYSBTZWd1cmlkYWQ8L3RleHQ+CiAgPHRleHQgeD0iMjY1IiB5PSI1MyIgZm9udC1mYW1pbHk9IkFyaWFsLHNhbnMtc2VyaWYiIGZvbnQtd2VpZ2h0PSI3MDAiCiAgICAgICAgZm9udC1zaXplPSI5LjIiIGZpbGw9IiMwMDNEQTUiPiAgUy5BLlMuPC90ZXh0Pgo8L3N2Zz4=" alt="GESEG" class="tb-logo">
+      <svg class="tb-logo" viewBox="0 0 232 40" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="OSCC Barranquilla">
+  <rect x="0" y="0" width="40" height="40" rx="9" fill="#002855"/>
+  <path d="M20 7 L31 11 V20 C31 26.5 26.4 31.4 20 33.5 C13.6 31.4 9 26.5 9 20 V11 Z" fill="none" stroke="#FFFFFF" stroke-width="2.2" stroke-linejoin="round"/>
+  <path d="M14.5 20.5 L18.5 24.5 L25.8 16.5" fill="none" stroke="#C8A84B" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="49" y="22" textLength="58" lengthAdjust="spacingAndGlyphs" font-family="Barlow Condensed, Arial Narrow, sans-serif" font-weight="800" font-size="22" fill="#002855">OSCC</text>
+  <rect x="115" y="6" width="2" height="18" fill="#C8A84B"/>
+  <text x="124" y="14" textLength="106" lengthAdjust="spacingAndGlyphs" font-family="Barlow, Arial, sans-serif" font-weight="700" font-size="8" fill="#3D5568">ALCALDÍA DISTRITAL</text>
+  <text x="124" y="24" textLength="92" lengthAdjust="spacingAndGlyphs" font-family="Barlow, Arial, sans-serif" font-weight="700" font-size="8" fill="#3D5568">DE BARRANQUILLA</text>
+  <text x="49" y="35" textLength="181" lengthAdjust="spacingAndGlyphs" font-family="Barlow, Arial, sans-serif" font-weight="500" font-size="7.2" fill="#5A6878">Oficina de Seguridad y Convivencia Ciudadana</text>
+</svg>
     </div>
     <div class="tb-divv"></div>
     <div>
-      <div class="tb-title">MEBAR · TABLERO ESTRATÉGICO DE SEGURIDAD</div>
-      <div class="tb-sub">Área Metropolitana de Barranquilla · Delitos de Alto Impacto · 2025–2026</div>
+      <div class="tb-title">BARRANQUILLA · TABLERO ESTRATÉGICO DE SEGURIDAD</div>
+      <div class="tb-sub">Delitos de Alto Impacto · Corte oficial MEBAR 20 sep 2026 · Comparativo 2025–2026</div>
     </div>
   </div>
   <div class="tb-right">
     <div class="tb-badge"><div class="pulse"></div>EN LÍNEA</div>
     <div class="tb-total" id="topTotal">—<span>REGISTROS</span></div>
   </div>
+</div>
+
+<div class="wrap wrap-corte">
+
+  <div class="sec-tit" style="margin-top:4px">⬥ Corte Oficial MEBAR · 1 ene – 20 sep · 2025 vs 2026</div>
+  <div class="corte-banner">
+    <span class="corte-chip">📅 Corte: 20/09/2026</span>
+    <span class="corte-chip">🗂️ Extracción: 21/09/2026 · 00:05</span>
+    <span>Cifras <b>Barranquilla (casco urbano)</b>, mismo periodo de ambos años. Fuente: <b>SIEDCO Plus · DIJIN-SIJIN MEBAR</b>. Datos preliminares, sujetos a variación por denuncias que ingresan al SPOA. <b>Septiembre es mes parcial (20 días)</b>. Seleccione un delito para ver su detalle.</span>
+  </div>
+
+  <div class="tiles" id="tiles"></div>
+
+  <div class="g21">
+    <div class="card">
+      <div class="ch"><div><div class="c-ey">Serie mensual</div><div class="c-tit" id="cxTitMes">—</div></div><span class="scope" id="scMes">—</span></div>
+      <div class="cb"><div class="cw" style="height:250px"><canvas id="cxMes"></canvas></div></div>
+    </div>
+    <div class="card">
+      <div class="ch"><div><div class="c-ey">Área metropolitana</div><div class="c-tit">Comparativo por Municipio</div></div><span class="scope m">MEBAR</span></div>
+      <div class="xwrap"><table class="xtab" id="tbMuni"></table></div>
+    </div>
+  </div>
+
+  <div class="g3">
+    <div class="card">
+      <div class="ch"><div><div class="c-ey">Jurisdicción policial</div><div class="c-tit">Distritos 1 a 5</div></div><span class="scope">D1–D5</span></div>
+      <div class="cb"><div class="cw" style="height:250px"><canvas id="cxDist"></canvas></div></div>
+    </div>
+    <div class="card">
+      <div class="ch"><div><div class="c-ey">Carga operativa</div><div class="c-tit">Estaciones · 2026 y variación</div></div><span class="scope">D1–D5</span></div>
+      <div class="blist" id="cxEst"></div>
+    </div>
+    <div class="card">
+      <div class="ch"><div><div class="c-ey">Cómo ocurre</div><div class="c-tit">Modalidad</div></div><span class="scope" id="scMod">—</span></div>
+      <div class="cb"><div class="cw" style="height:250px"><canvas id="cxMod"></canvas></div></div>
+    </div>
+  </div>
+
+  <div class="g3">
+    <div class="card">
+      <div class="ch"><div><div class="c-ey">Con qué</div><div class="c-tit" id="cxTitArma">Tipo de Arma</div></div><span class="scope" id="scArm">—</span></div>
+      <div class="cb"><div class="cw" style="height:230px"><canvas id="cxArm"></canvas></div></div>
+    </div>
+    <div class="card">
+      <div class="ch"><div><div class="c-ey">Franjas de riesgo · 2026</div><div class="c-tit">Rango de Hora vs Día</div></div><span class="scope" id="scHxd">—</span></div>
+      <div class="xwrap"><table class="hxd" id="tbHxd"></table></div>
+    </div>
+    <div class="card">
+      <div class="ch"><div><div class="c-ey">Concentración territorial</div><div class="c-tit">Barrios más Afectados</div></div><span class="scope" id="scBar">—</span></div>
+      <div class="blist" id="cxBar"></div>
+      <div class="mini-strip" id="cxCap"></div>
+    </div>
+  </div>
+
+  <div class="sec-tit"><div style="width:8px;height:8px;border-radius:50%;background:var(--red);animation:pulse 2s infinite;flex-shrink:0;"></div> Hallazgos del Corte · 20 sep 2026</div>
+  <div class="agrid" id="cxHall"></div>
+
+  <div class="sec-tit">⬥ Resultados Operativos · Barranquilla · 1 ene – 20 sep</div>
+  <div class="kpi-strip" id="opKpi"></div>
+  <div class="g3">
+    <div class="card">
+      <div class="ch"><div><div class="c-ey">Capturas</div><div class="c-tit">Capturas por Delito</div></div><span class="scope">BARRANQUILLA</span></div>
+      <div class="cb"><div class="cw" style="height:300px"><canvas id="opDel"></canvas></div></div>
+    </div>
+    <div class="card">
+      <div class="ch"><div><div class="c-ey">Judicialización</div><div class="c-tit">Medidas sobre Capturados · 2026</div></div><span class="scope">BARRANQUILLA</span></div>
+      <div class="cb"><div class="cw" style="height:200px"><canvas id="opMed"></canvas></div></div>
+      <div class="xwrap"><table class="xtab" id="tbAllan"></table></div>
+    </div>
+    <div class="card">
+      <div class="ch"><div><div class="c-ey">Estructuras</div><div class="c-tit">Capturas a Bandas Delincuenciales</div></div><span class="scope">BARRANQUILLA</span></div>
+      <div id="opBand" style="padding:6px 0"></div>
+      <div class="xwrap"><table class="xtab" id="tbInc"></table></div>
+    </div>
+  </div>
+
+  <div class="sec-tit records-hdr">⬥ Análisis Detallado por Registros SIEDCO</div>
+  <div class="sec-note">Base de eventos individuales (n=33.602): 2025 completo (semanas 1–52) y 2026 hasta la semana 23. Para comparar periodos equivalentes, ajuste el rango de semanas a 1–23 en la barra de filtros. Este bloque sí responde a los filtros.</div>
 </div>
 
 <div class="filterbar">
@@ -405,10 +545,19 @@ body{background:var(--bg);color:var(--text);font-family:var(--font-body);font-si
 
 <div class="footer">
   <div style="display:flex;align-items:center;gap:12px;">
-    <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzNDAgODAiPgogIDwhLS0gQXJjL3N3b29zaCBmb3JtaW5nIHRoZSBHIHN5bWJvbCAtLT4KICA8cGF0aCBkPSJNNiw0MCBBMzAsMzAgMCAxLDEgMzYsNzAgTDM2LDU3IEExNywxNyAwIDEsMCAyMyw0MCBaIiBmaWxsPSIjMDAzREE1Ii8+CiAgPHJlY3QgeD0iMjYiIHk9IjM3IiB3aWR0aD0iMTciIGhlaWdodD0iMTEiIHJ4PSIxIiBmaWxsPSIjMDAzREE1Ii8+CiAgPCEtLSBHRVNFRyB3b3JkbWFyayAtLT4KICA8dGV4dCB4PSI3MiIgeT0iMzciIGZvbnQtZmFtaWx5PSInQXJpYWwgQmxhY2snLEFyaWFsLHNhbnMtc2VyaWYiIGZvbnQtd2VpZ2h0PSI5MDAiCiAgICAgICAgZm9udC1zaXplPSIzMSIgZmlsbD0iIzAwM0RBNSIgbGV0dGVyLXNwYWNpbmc9IjEuNSI+R0VTRUc8L3RleHQ+CiAgPCEtLSBUYWdsaW5lIC0tPgogIDx0ZXh0IHg9IjcyIiB5PSI1MyIgZm9udC1mYW1pbHk9IkFyaWFsLHNhbnMtc2VyaWYiIGZvbnQtd2VpZ2h0PSI3MDAiCiAgICAgICAgZm9udC1zaXplPSIxMC4yIiBmaWxsPSIjMDAzREE1IiBsZXR0ZXItc3BhY2luZz0iMC40Ij5HZXN0acOzbiBkZSBsYSBTZWd1cmlkYWQ8L3RleHQ+CiAgPHRleHQgeD0iMjY1IiB5PSI1MyIgZm9udC1mYW1pbHk9IkFyaWFsLHNhbnMtc2VyaWYiIGZvbnQtd2VpZ2h0PSI3MDAiCiAgICAgICAgZm9udC1zaXplPSI5LjIiIGZpbGw9IiMwMDNEQTUiPiAgUy5BLlMuPC90ZXh0Pgo8L3N2Zz4=" alt="GESEG" style="height:22px;width:auto;opacity:.9;">
-    <span><b>GESEG · GESTIÓN DE LA SEGURIDAD S.A.S.</b> · Tablero Estratégico MEBAR 2025–2026 · Por: <b>Omar Rubiano Castro</b> · CONVIVE 360 Modelo Aplicado</span>
+    <svg style="height:24px;width:auto;display:block;" viewBox="0 0 232 40" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="OSCC Barranquilla">
+  <rect x="0" y="0" width="40" height="40" rx="9" fill="#002855"/>
+  <path d="M20 7 L31 11 V20 C31 26.5 26.4 31.4 20 33.5 C13.6 31.4 9 26.5 9 20 V11 Z" fill="none" stroke="#FFFFFF" stroke-width="2.2" stroke-linejoin="round"/>
+  <path d="M14.5 20.5 L18.5 24.5 L25.8 16.5" fill="none" stroke="#C8A84B" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="49" y="22" textLength="58" lengthAdjust="spacingAndGlyphs" font-family="Barlow Condensed, Arial Narrow, sans-serif" font-weight="800" font-size="22" fill="#002855">OSCC</text>
+  <rect x="115" y="6" width="2" height="18" fill="#C8A84B"/>
+  <text x="124" y="14" textLength="106" lengthAdjust="spacingAndGlyphs" font-family="Barlow, Arial, sans-serif" font-weight="700" font-size="8" fill="#3D5568">ALCALDÍA DISTRITAL</text>
+  <text x="124" y="24" textLength="92" lengthAdjust="spacingAndGlyphs" font-family="Barlow, Arial, sans-serif" font-weight="700" font-size="8" fill="#3D5568">DE BARRANQUILLA</text>
+  <text x="49" y="35" textLength="181" lengthAdjust="spacingAndGlyphs" font-family="Barlow, Arial, sans-serif" font-weight="500" font-size="7.2" fill="#5A6878">Oficina de Seguridad y Convivencia Ciudadana</text>
+</svg>
+    <span><b>OSCC · OFICINA DE SEGURIDAD Y CONVIVENCIA CIUDADANA · ALCALDÍA DISTRITAL DE BARRANQUILLA</b> · Tablero Estratégico MEBAR 2025–2026 · Por: <b>Omar Rubiano Castro</b> · CONVIVE 360 Modelo Aplicado</span>
   </div>
-  <div>Fuente: SIEDCO-Policía Nacional · n=33.602 eventos · Área Metropolitana de Barranquilla · Datos correspondientes a 2025–2026, extraídos de DB1 - ACTUALIZACIÓN_Datos completos_data.csv</div>
+  <div>Fuente: SIEDCO Plus · DIJIN-SIJIN MEBAR, Policía Nacional · Corte oficial 1 ene–20 sep 2026 (extracción 21/09/2026 00:05) · Registros detallados: n=33.602 eventos · Área Metropolitana de Barranquilla · Datos correspondientes a 2025–2026, extraídos de DB1 - ACTUALIZACIÓN_Datos completos_data.csv</div>
   <div id="fTime"></div>
 </div>
 
@@ -1143,6 +1292,209 @@ const DATA = [[47,2,0,1,9,0,0,30,1,4,13,70,2025],[166,1,3,1,9,0,0,34,1,3,13,82,2
 document.getElementById('fTime').textContent='Cargado: '+new Date().toLocaleTimeString('es-CO');
 render();
 </script>
+<script>
+/* ══ CORTE OFICIAL MEBAR · 20 SEP 2026 ══ */
+const CX={"D": {"hom": {"name": "Homicidio", "color": "#D6534A", "scope": "BARRANQUILLA", "baq": [429, 321, 457, 33.9, 22, 12, 14], "muni": [[161, 254], [17, 13], [37, 83], [14, 22], [550, 829]], "est": [[10, 13], [14, 22], [11, 10], [13, 19], [40, 70], [49, 44], [19, 38], [97, 116], [82, 147], [17, 13]], "m25": [51, 27, 37, 31, 35, 48, 38, 42, 22, 26, 33, 39], "m26": [48, 45, 48, 54, 60, 65, 66, 57, 14], "mod": [["Sicariato", 260, 403], ["Riñas", 40, 40], ["Atraco", 11, 8], ["Linchamiento", 4, 0], ["Tortura", 3, 3], ["Otras", 3, 3]], "arm": [["Arma de fuego", 283, 424], ["Cortopunzante", 28, 24], ["Contundente", 10, 9]], "hxd": [[10, 3, 9, 28], [4, 9, 13, 26], [3, 5, 18, 16], [5, 11, 24, 29], [7, 6, 24, 27], [8, 4, 22, 41], [31, 12, 19, 43]], "bar": [["El Bosque", 20, 32], ["Las Américas", 13, 27], ["Carrizal", 13, 24], ["Rebolo", 29, 23], ["Las Nieves", 2, 19], ["Santo Domingo de Guzmán", 8, 18], ["7 de Abril", 6, 17], ["Las Esmeraldas", 6, 16]], "cap": [122, 39, 83], "dia": 1.7}, "les": {"name": "Lesiones Personales", "color": "#7D3C98", "scope": "MEBAR", "baq": [1618, 1106, 1559, 115.6, 140, 88, 125], "muni": [[306, 509], [66, 73], [70, 138], [60, 54], [1608, 2333]], "est": [[58, 268], [60, 54], [98, 117], [123, 94], [131, 225], [76, 121], [99, 153], [284, 323], [237, 258], [66, 73]], "m25": [158, 153, 238, 188, 173, 181, 220, 175, 194, 227, 231, 195], "m26": [193, 238, 209, 188, 256, 389, 337, 346, 177], "mod": [["Riñas", 1241, 1193], ["Sicariato", 155, 281], ["Atraco", 18, 8], ["Accidental", 16, 2], ["Riñas pandillas", 5, 2], ["Otras", 173, 847]], "arm": [["Sin empleo de armas", 673, 1095], ["Contundente", 549, 721], ["Arma de fuego", 192, 330], ["Cortopunzante", 175, 165], ["Otras", 19, 22]], "hxd": [[119, 66, 65, 135], [59, 54, 75, 111], [56, 50, 66, 82], [53, 62, 76, 102], [35, 48, 60, 104], [44, 52, 83, 119], [174, 71, 100, 212]], "bar": [["Rebolo", 39, 64], ["El Bosque", 51, 44], ["Las Nieves", 5, 31], ["Las Esmeraldas", 14, 31], ["La Paz", 22, 30], ["Ciudadela 20 de Julio", 26, 29]], "cap": [386, 382, 4], "dia": 8.9}, "dsx": {"name": "Delitos Sexuales", "color": "#C2185B", "scope": "MEBAR", "baq": [463, 371, 340, 25.2, 58, 42, 20], "muni": [[188, 226], [15, 13], [43, 44], [11, 13], [628, 636]], "est": [[41, 64], [11, 13], [45, 29], [23, 8], [47, 35], [18, 23], [47, 43], [89, 99], [61, 39], [15, 13]], "m25": [57, 57, 72, 83, 61, 74, 75, 87, 93, 85, 55, 35], "m26": [45, 73, 95, 77, 103, 86, 53, 77, 27], "mod": [["Amenaza / chantaje", 187, 95], ["Sustancias tóxicas", 28, 9], ["Amigo o conocido", 10, 5], ["Aplicaciones", 2, 2], ["Otras", 401, 525]], "arm": [["Sin empleo de armas", 541, 602], ["Cortopunzante", 50, 26], ["Contundente", 32, 7], ["Escopolamina", 5, 1]], "hxd": [[11, 54, 36, 14], [7, 49, 35, 11], [12, 35, 35, 14], [13, 41, 24, 12], [16, 40, 37, 9], [14, 17, 20, 13], [9, 19, 16, 23]], "bar": [["Soledad 2000 (Soledad)", 2, 7], ["El Manantial (Soledad)", 0, 6], ["San Fernando (Malambo)", 2, 5], ["Manuela Beltrán", 1, 5], ["Nuevo Milenio", 12, 4], ["La Central", 4, 4]], "cap": [75, 29, 46], "dia": 2.4}, "hp": {"name": "Hurto a Personas", "color": "#E07A28", "scope": "MEBAR", "baq": [10187, 6987, 6516, 483.0, 981, 637, 350], "muni": [[1805, 1715], [112, 110], [179, 194], [158, 173], [9241, 8708]], "est": [[620, 1075], [161, 182], [1022, 894], [1449, 1092], [867, 886], [447, 343], [849, 717], [857, 822], [877, 693], [112, 109]], "m25": [1068, 925, 720, 554, 1363, 1173, 1302, 1307, 1250, 1483, 1275, 1072], "m26": [1036, 1286, 963, 906, 903, 956, 1038, 1169, 451], "mod": [["Atraco", 6012, 5436], ["Factor de oportunidad", 1061, 1114], ["Cosquilleo", 1089, 1030], ["Raponazo", 599, 647], ["Rompimiento de vidrio", 98, 168], ["Otras", 382, 313]], "arm": [["Arma de fuego", 4614, 3892], ["Sin empleo de armas", 3244, 3365], ["Cortopunzante", 892, 827], ["Contundente", 126, 120], ["Otras", 365, 504]], "hxd": [[280, 300, 248, 295], [268, 339, 281, 342], [306, 311, 289, 372], [320, 334, 264, 376], [325, 320, 296, 439], [434, 326, 295, 417], [319, 214, 175, 223]], "bar": [["Abajo", 188, 208], ["Centro", 284, 198], ["Prado", 142, 118], ["Boston", 119, 116], ["El Carmen", 135, 111], ["Ciudadela 20 de Julio", 219, 108]], "cap": [714, 636, 78], "dia": 33.1}, "hc": {"name": "Hurto a Comercio", "color": "#B85C00", "scope": "MEBAR", "baq": [600, 497, 385, 28.5, 33, 19, 15], "muni": [[93, 76], [28, 11], [24, 19], [8, 17], [650, 508]], "est": [[72, 68], [8, 17], [113, 88], [105, 55], [55, 53], [24, 22], [43, 36], [49, 29], [36, 34], [28, 11]], "m25": [95, 48, 68, 71, 99, 83, 108, 52, 43, 58, 35, 17], "m26": [85, 76, 89, 73, 71, 37, 30, 30, 17], "mod": [["Factor de oportunidad", 257, 223], ["Atraco", 161, 109], ["Mechero", 76, 58], ["Ventosa", 44, 25], ["Engaño", 17, 14], ["Otras", 95, 79]], "arm": [["Sin empleo de armas", 473, 387], ["Arma de fuego", 145, 91], ["Contundente", 16, 16], ["Cortopunzante", 8, 2], ["Otras", 8, 12]], "hxd": [[10, 24, 20, 16], [10, 19, 26, 26], [15, 13, 21, 26], [15, 17, 20, 21], [21, 23, 19, 16], [15, 17, 25, 24], [10, 12, 13, 14]], "bar": [["Altos del Prado", 16, 19], ["Santa Mónica", 10, 13], ["Centro", 28, 11], ["Prado", 16, 10], ["La Concepción", 8, 9], ["Riomar", 11, 8]], "cap": [203, 196, 7], "dia": 1.9}, "hr": {"name": "Hurto a Residencias", "color": "#0A7A52", "scope": "MEBAR", "baq": [478, 346, 327, 24.2, 38, 30, 20], "muni": [[76, 74], [12, 10], [7, 18], [33, 20], [474, 449]], "est": [[62, 80], [32, 21], [65, 59], [34, 19], [40, 29], [12, 11], [44, 49], [54, 39], [36, 40], [12, 10]], "m25": [44, 31, 40, 39, 59, 77, 72, 70, 58, 69, 52, 64], "m26": [62, 52, 61, 31, 60, 55, 50, 54, 24], "mod": [["Factor de oportunidad", 154, 169], ["Violación de cerradura", 141, 103], ["Ventosa", 106, 101], ["Atraco", 37, 45], ["Engaño", 14, 12], ["Otras", 22, 19]], "arm": [["Sin empleo de armas", 399, 391], ["Contundente", 24, 10], ["Palancas", 13, 3], ["Cortopunzante", 4, 5], ["Otras", 34, 40]], "hxd": [[20, 25, 8, 15], [14, 23, 11, 16], [14, 22, 9, 10], [15, 12, 21, 13], [24, 18, 19, 10], [19, 13, 17, 16], [19, 17, 15, 14]], "bar": [["Riomar", 13, 12], ["Miramar", 3, 9], ["El Recreo", 4, 9], ["La Victoria", 3, 8], ["El Paraíso", 2, 7], ["El Bosque", 3, 7]], "cap": [36, 35, 1], "dia": 1.7}, "hv": {"name": "Hurto a Vehículos", "color": "#002855", "scope": "MEBAR", "baq": [415, 323, 243, 18.0, 19, 13, 15], "muni": [[48, 64], [16, 16], [6, 12], [16, 9], [409, 344]], "est": [[40, 22], [16, 9], [56, 57], [56, 33], [39, 26], [4, 11], [49, 49], [43, 21], [36, 24], [16, 16]], "m25": [40, 53, 40, 57, 71, 49, 33, 46, 29, 42, 39, 30], "m26": [40, 49, 59, 37, 28, 29, 45, 37, 20], "mod": [["Halado", 280, 261], ["Atraco", 106, 58], ["Factor de oportunidad", 19, 16], ["Escopolamina", 1, 0], ["Otras", 3, 9]], "arm": [["Sin empleo de armas", 179, 251], ["Arma de fuego", 103, 54], ["Llave maestra", 124, 35], ["Cortopunzante", 3, 0], ["Otras", 0, 4]], "hxd": [[18, 14, 7, 5], [14, 11, 16, 13], [21, 10, 6, 13], [20, 16, 11, 11], [22, 17, 6, 9], [23, 15, 6, 7], [15, 6, 6, 6]], "bar": [["El Carmen", 5, 8], ["Ciudadela 20 de Julio", 8, 8], ["San Francisco", 2, 7], ["Miramar", 13, 7], ["La Concepción", 9, 7], ["Montes", 0, 6]], "cap": [28, 26, 2], "dia": 1.3}, "hm": {"name": "Hurto a Motocicletas", "color": "#0057A8", "scope": "MEBAR", "baq": [1118, 824, 525, 38.9, 106, 77, 25], "muni": [[336, 272], [32, 26], [64, 42], [10, 15], [1266, 880]], "est": [[29, 37], [10, 15], [73, 43], [122, 41], [143, 91], [29, 23], [91, 64], [192, 120], [145, 106], [32, 26]], "m25": [149, 129, 163, 125, 151, 154, 167, 119, 149, 137, 149, 120], "m26": [114, 127, 117, 102, 98, 94, 104, 85, 39], "mod": [["Halado", 772, 518], ["Atraco", 454, 306], ["Factor de oportunidad", 32, 47], ["Escopolamina", 1, 0], ["Otras", 7, 9]], "arm": [["Sin empleo de armas", 451, 511], ["Arma de fuego", 388, 253], ["Llave maestra", 371, 66], ["Cortopunzante", 42, 27], ["Otras", 14, 23]], "hxd": [[37, 24, 23, 16], [35, 33, 20, 37], [32, 46, 27, 42], [33, 40, 15, 42], [30, 47, 19, 34], [40, 42, 16, 38], [46, 19, 19, 28]], "bar": [["Ciudadela 20 de Julio", 25, 19], ["La Central", 10, 14], ["7 de Abril", 7, 14], ["El Bosque", 32, 13], ["Las Esmeraldas", 9, 12], ["El Valle", 4, 12]], "cap": [118, 105, 13], "dia": 3.3}, "ext": {"name": "Extorsión", "color": "#6B21C0", "scope": "MEBAR", "baq": [729, 548, 508, 37.7, 58, 31, 6], "muni": [[227, 246], [8, 11], [54, 80], [16, 24], [853, 869]], "est": [[47, 98], [16, 24], [37, 35], [66, 41], [69, 68], [43, 35], [85, 81], [120, 96], [81, 54], [8, 11]], "m25": [88, 53, 67, 95, 127, 99, 140, 124, 96, 102, 80, 77], "m26": [88, 89, 125, 136, 110, 117, 100, 96, 8], "mod": [["Clásica", 613, 487], ["GDCO", 106, 227], ["Ciberextorsión", 36, 49], ["Menor cuantía", 22, 32], ["Carcelaria", 21, 25], ["Íntima", 26, 18], ["Otras", 29, 31]], "arm": [["Llamada telefónica", 373, 458], ["Directa", 224, 203], ["Redes sociales", 110, 120], ["Carta extorsiva", 99, 44], ["Otras", 47, 44]], "hxd": [[17, 36, 39, 24], [20, 41, 44, 31], [25, 34, 44, 36], [20, 43, 44, 32], [25, 33, 51, 34], [15, 34, 39, 25], [16, 22, 24, 21]], "bar": [["Centro (sector A)", 114, 158], ["Centro (sector B)", 56, 100], ["Centro (sector C)", 22, 46], ["El Bosque", 13, 17], ["Ciudadela 20 de Julio", 11, 15], ["El Carmen", 25, 14]], "cap": [329, 252, 77], "dia": 3.3}}, "ORDER": ["hom", "les", "dsx", "hp", "hc", "hr", "hv", "hm", "ext"], "EST": ["Riomar", "Puerto Colombia", "Norte", "Centro Histórico", "Simón Bolívar", "San José", "El Silencio", "El Bosque", "Ciudadela", "Galapa"], "EST_D": [1, 1, 2, 2, 3, 3, 4, 4, 5, 5], "DAYS": ["Lun", "Mar", "Mié", "Jue", "Vie", "Sáb", "Dom"], "OP": {"kpi": [["Capturas totales", 4065, 3791, "#0057A8", "🚔", "Flagrancia 3.410 · O. judicial 381"], ["Quedan en libertad", 3294, 3227, "#D6534A", "⚖️", "85% de los capturados 2026"], ["Armas de fuego incautadas", 788, 661, "#B85C00", "🔫", "Sin permiso 608 · Originales 442"], ["Marihuana incautada (kg)", 520.7, 2416.8, "#0E9F6E", "🌿", "Cocaína 213,6 kg (−18%)"], ["Vehículos recuperados", 318, 366, "#002855", "🚗", "Motos 257 · Automotores 109"], ["Allanamientos", 614, 470, "#7D3C98", "🏠", "Homicidio: 46 → 17 (−63%)"]], "cap": [["Hurtos*", 1156, 1021], ["Porte de armas de fuego", 718, 730], ["Tráfico de estupefacientes", 489, 366], ["Violencia intrafamiliar", 185, 312], ["Lesiones personales", 215, 253], ["Extorsión", 189, 222], ["Homicidio", 124, 122], ["Uso de documento falso", 278, 120], ["Violencia a servidor público", 65, 74], ["Delitos sexuales", 48, 32], ["Otros delitos", 598, 539]], "med": [["Libertad", 3294, 3227], ["Detención carcelaria", 687, 475], ["Pendiente por medida", 7, 51], ["Detención domiciliaria", 73, 35]], "allan": [["Estupefacientes", 241, 173], ["Porte ilegal de armas", 99, 163], ["Homicidio", 46, 17], ["Hurtos", 57, 28], ["Otras conductas", 171, 89], ["Total", 614, 470]], "band": [["Los Costeños", 279, 323], ["Los Pepes", 82, 133], ["Clan del Golfo", 20, 12], ["Los Papalópez", 1, 2], ["GAOR", 4, 0]], "inc": [["Pistola", 376, 262], ["Revólver", 192, 241], ["Escopeta", 26, 30], ["Fusil / rifle", 6, 4], ["Celulares incautados", 371, 560], ["Celulares recuperados", 347, 485]]}, "HALL": [["r", "ALERTA ROJA · HOMICIDIO", "Homicidio +42%: el sicariato explica casi 9 de cada 10 casos", "Barranquilla pasa de 321 a 457 homicidios (tasa parcial 33,9 por 100 mil). El sicariato sube de 260 a 403 casos (88% del total) y el arma de fuego está en el 93%. Crecen con fuerza las estaciones Ciudadela (+79%), El Silencio (+100%) y Simón Bolívar (+75%).", "+136 homicidios · sicariato +55%"], ["r", "ALERTA ROJA · FRANJA", "Noche y domingo concentran la letalidad", "El 46% de los homicidios de 2026 (210 de 457) ocurre entre las 18:00 y las 23:59, y el domingo es el día más crítico (105 casos, 31 de ellos en madrugada). La franja 00:00–05:59 del domingo supera a cualquier otra madrugada de la semana.", "210 casos en franja nocturna"], ["r", "ALERTA ROJA · JUDICIALIZACIÓN", "Brecha entre violencia letal e investigación", "Mientras los homicidios suben 42%, las capturas por homicidio bajan 2% (124 → 122) y los allanamientos por homicidio caen 63% (46 → 17). Además, el 85% de los capturados de 2026 quedó en libertad y la detención carcelaria cae 31%.", "Allanamientos por homicidio −63%"], ["o", "ALERTA NARANJA · LESIONES", "Lesiones personales +41%, con salto atípico en Riomar", "Barranquilla sube de 1.106 a 1.559 casos. La estación Riomar pasa de 58 a 268 (+362%) y en el área metropolitana la modalidad \"Otras\" sube de 173 a 847, lo que sugiere un cambio de registro o clasificación que conviene verificar con SIJIN.", "Riomar +210 casos"], ["o", "ALERTA NARANJA · EXTORSIÓN", "La extorsión baja 7%, pero crece la modalidad GDCO", "En el área metropolitana la extorsión atribuida a GDCO pasa de 106 a 227 casos (+114%) y la estación Riomar se duplica (47 → 98). Septiembre reporta solo 6 casos en Barranquilla frente a 31: es probable rezago en denuncia, no una caída real.", "GDCO +121 casos (MEBAR)"], ["y", "SEGUIMIENTO · PATRIMONIO", "Descenso general del hurto, con excepción del corredor Riomar", "Bajan hurto a motocicletas (−36%), vehículos (−25%), comercio (−23%), personas (−7%) y residencias (−5%). En contraste, la estación Riomar aumenta el hurto a personas de 620 a 1.075 (+73%) y el de residencias de 62 a 80 (+29%).", "Motos −299 casos · Riomar HP +455"]]};
+const MES_L=['Ene','Feb','Mar','Abr','May','Jun','Jul','Ago','Sep','Oct','Nov','Dic'];
+const fN=(v,d=0)=>Number(v).toLocaleString('es-CO',{minimumFractionDigits:d,maximumFractionDigits:d});
+function vPct(a,b){ if(!a) return b?100:0; return Math.round((b-a)/a*100); }
+function vChip(a,b){
+  const p=vPct(a,b), c=p>0?'up':p<0?'dn':'eq';
+  return `<span class="vchip ${c}">${p>0?'+':''}${p}%</span>`;
+}
+function tipOpts(extra){
+  return Object.assign({
+    backgroundColor:'rgba(255,255,255,.97)',borderColor:'rgba(0,40,85,.15)',borderWidth:1,
+    titleColor:'#002855',bodyColor:'#3D5568',padding:10,
+    titleFont:{family:'Barlow Condensed, sans-serif',weight:'700',size:13},
+    bodyFont:{family:'IBM Plex Mono, monospace',size:11}
+  },extra||{});
+}
+const C25='#0057A8', C26='#C8A84B';
+let cxSel='hom';
+
+function renderTiles(){
+  const t25=CX.ORDER.reduce((a,k)=>a+CX.D[k].baq[1],0);
+  const t26=CX.ORDER.reduce((a,k)=>a+CX.D[k].baq[2],0);
+  let h=`<div class="tile total"><div class="t-ey">9 delitos de alto impacto</div>
+    <div class="t-row"><div class="t-num">${fN(t26)}</div>${vChip(t25,t26)}</div>
+    <div class="t-prev">2025 mismo periodo: <b>${fN(t25)}</b> · Barranquilla</div></div>`;
+  CX.ORDER.forEach(k=>{
+    const d=CX.D[k], b=d.baq;
+    h+=`<button class="tile ${k===cxSel?'on':''}" style="--tc:${d.color}" onclick="cxPick('${k}')">
+      <div class="t-ey">${d.name}</div>
+      <div class="t-row"><div class="t-num">${fN(b[2])}</div>${vChip(b[1],b[2])}</div>
+      <div class="t-prev">2025: <b>${fN(b[1])}</b> · Tasa <b>${fN(b[3],1)}</b>/100 mil</div>
+    </button>`;
+  });
+  document.getElementById('tiles').innerHTML=h;
+}
+
+function cxPick(k){ cxSel=k; renderTiles(); renderCorte(); }
+
+function setScope(id,sc){
+  const el=document.getElementById(id);
+  el.textContent=sc; el.className='scope'+(sc==='MEBAR'?' m':'');
+}
+
+function renderCorte(){
+  const d=CX.D[cxSel], sc=d.scope;
+  ['scMes','scMod','scArm','scHxd','scBar'].forEach(id=>setScope(id,sc));
+
+  /* Serie mensual */
+  document.getElementById('cxTitMes').textContent=`${d.name} por Mes · 2025 vs 2026`;
+  const bg26=d.m26.map((_,i)=>i===8?'rgba(200,168,75,.38)':'rgba(200,168,75,.85)');
+  mkChart('cxMes',{
+    data:{labels:MES_L,datasets:[
+      {type:'bar',label:'2026',data:d.m26,backgroundColor:bg26,borderRadius:4,order:2},
+      {type:'line',label:'2025',data:d.m25,borderColor:C25,backgroundColor:C25,borderWidth:2,pointRadius:3,tension:.3,order:1}
+    ]},
+    options:{responsive:true,maintainAspectRatio:false,
+      plugins:{legend:{display:true,position:'top',align:'end',labels:{boxWidth:10,font:{size:10}}},
+        tooltip:tipOpts({callbacks:{afterBody:(it)=>it[0].dataIndex===8?'Sep 2026: parcial (1–20)':''}})},
+      scales:{x:{grid:{display:false}},y:{beginAtZero:true,grid:{color:'rgba(0,40,85,.08)'}}}}
+  });
+
+  /* Municipios */
+  const MU=['Barranquilla','Soledad','Galapa','Malambo','Puerto Colombia'];
+  const rows=[[d.baq[1],d.baq[2]],...d.muni.slice(0,4)];
+  const tot=d.muni[4];
+  let t='<tr><th>Municipio</th><th>2025</th><th>2026</th><th>Var.</th><th>Aporte</th></tr>';
+  rows.forEach((r,i)=>{
+    t+=`<tr class="${i===0?'hl':''}"><td>${MU[i]}</td><td>${fN(r[0])}</td><td>${fN(r[1])}</td><td>${vChip(r[0],r[1])}</td><td>${fN(tot[1]?r[1]/tot[1]*100:0,1)}%</td></tr>`;
+  });
+  t+=`<tr class="tot"><td>Total MEBAR</td><td>${fN(tot[0])}</td><td>${fN(tot[1])}</td><td>${vChip(tot[0],tot[1])}</td><td>100%</td></tr>`;
+  const b=d.baq;
+  t+=`<tr><td colspan="5" style="font-family:var(--font-body);font-weight:400;color:var(--muted);text-align:left;padding-top:10px;font-size:.92em">
+      Septiembre (1–20): <b style="color:var(--navy)">${b[5]} → ${b[6]}</b> ${vChip(b[5],b[6])} · Total año 2025 Barranquilla: <b style="color:var(--navy)">${fN(b[0])}</b></td></tr>`;
+  document.getElementById('tbMuni').innerHTML=t;
+
+  /* Distritos */
+  const dv=[1,2,3,4,5].map(n=>{
+    let a=0,c=0; d.est.forEach((e,i)=>{ if(CX.EST_D[i]===n){a+=e[0];c+=e[1];} }); return [a,c];
+  });
+  mkChart('cxDist',{type:'bar',
+    data:{labels:['D1 Riomar','D2 Norte-C.H.','D3 Sur Oriente','D4 Sur Occid.','D5 Metropol.'],
+      datasets:[{label:'2025',data:dv.map(x=>x[0]),backgroundColor:C25,borderRadius:4},
+                {label:'2026',data:dv.map(x=>x[1]),backgroundColor:C26,borderRadius:4}]},
+    options:{responsive:true,maintainAspectRatio:false,
+      plugins:{legend:{display:true,position:'top',align:'end',labels:{boxWidth:10,font:{size:10}}},
+        tooltip:tipOpts({callbacks:{footer:(it)=>{const x=dv[it[0].dataIndex];const p=vPct(x[0],x[1]);return `Variación: ${p>0?'+':''}${p}%`;}}})},
+      scales:{x:{grid:{display:false},ticks:{font:{size:9}}},y:{beginAtZero:true,grid:{color:'rgba(0,40,85,.08)'}}}}
+  });
+
+  /* Estaciones */
+  const es=d.est.map((e,i)=>({n:CX.EST[i],a:e[0],b:e[1],dd:CX.EST_D[i]})).sort((x,y)=>y.b-x.b);
+  const mx=Math.max(...es.map(e=>e.b),1);
+  const DC={1:'#0A7A52',2:'#0057A8',3:'#B85C00',4:'#B0120B',5:'#6B21C0'};
+  document.getElementById('cxEst').innerHTML=es.map((e,i)=>`<div class="brow">
+      <span class="brank">${i+1}</span>
+      <span class="bname" style="width:118px" title="Distrito ${e.dd}">${e.n}</span>
+      <div class="bbarw"><div class="bbar" style="width:${(e.b/mx*100).toFixed(1)}%;background:${DC[e.dd]}"></div></div>
+      <span class="bcnt" style="color:var(--navy)">${fN(e.b)}</span>
+      <span class="bv">${vChip(e.a,e.b)}</span></div>`).join('');
+
+  /* Modalidad */
+  const mo=[...d.mod].sort((x,y)=>y[2]-x[2]);
+  mkChart('cxMod',{type:'bar',
+    data:{labels:mo.map(m=>m[0]),datasets:[
+      {label:'2025',data:mo.map(m=>m[1]),backgroundColor:C25,borderRadius:3},
+      {label:'2026',data:mo.map(m=>m[2]),backgroundColor:d.color,borderRadius:3}]},
+    options:{indexAxis:'y',responsive:true,maintainAspectRatio:false,
+      plugins:{legend:{display:true,position:'top',align:'end',labels:{boxWidth:10,font:{size:10}}},tooltip:tipOpts()},
+      scales:{x:{beginAtZero:true,grid:{color:'rgba(0,40,85,.08)'}},y:{grid:{display:false},ticks:{font:{size:10}}}}}
+  });
+
+  /* Arma / medio */
+  document.getElementById('cxTitArma').textContent=cxSel==='ext'?'Medio Utilizado':'Tipo de Arma';
+  const ar=d.arm, tA=ar.reduce((a,x)=>a+x[2],0);
+  const pal=[d.color,'#0057A8','#C8A84B','#0E9F6E','#5A6878','#E07A28'];
+  mkChart('cxArm',{type:'doughnut',
+    data:{labels:ar.map(a=>a[0]),datasets:[{data:ar.map(a=>a[2]),backgroundColor:pal,borderColor:'#fff',borderWidth:2}]},
+    options:{responsive:true,maintainAspectRatio:false,cutout:'58%',
+      plugins:{legend:{display:true,position:'right',labels:{boxWidth:10,font:{size:10}}},
+        tooltip:tipOpts({callbacks:{label:(c)=>{const x=ar[c.dataIndex];const p=vPct(x[1],x[2]);
+          return ` ${x[0]}: ${fN(x[2])} (${Math.round(x[2]/tA*100)}%) · 2025: ${fN(x[1])} · ${p>0?'+':''}${p}%`;}}})}}
+  });
+
+  /* Hora x día */
+  const H=d.hxd, mh=Math.max(...H.flat());
+  const col=v=>{const a=v/mh; return `background:rgba(214,83,74,${(0.06+a*0.82).toFixed(2)});color:${a>.55?'#fff':'#1C2B3A'}`;};
+  let hx='<tr><th class="r">Día</th><th>00–06</th><th>06–12</th><th>12–18</th><th>18–24</th><th>Total</th></tr>';
+  H.forEach((r,i)=>{ hx+=`<tr><th class="r">${CX.DAYS[i]}</th>${r.map(v=>`<td style="${col(v)}" title="${fN(v)} casos">${fN(v)}</td>`).join('')}<td class="tt">${fN(r.reduce((a,b)=>a+b,0))}</td></tr>`; });
+  const colT=[0,1,2,3].map(j=>H.reduce((a,r)=>a+r[j],0));
+  const gT=colT.reduce((a,b)=>a+b,0);
+  hx+=`<tr><th class="r">Total</th>${colT.map(v=>`<td class="tt">${fN(v)}<div style="font-size:.78em;color:var(--dim);font-weight:400">${Math.round(v/gT*100)}%</div></td>`).join('')}<td class="tt">${fN(gT)}</td></tr>`;
+  document.getElementById('tbHxd').innerHTML=hx;
+
+  /* Barrios */
+  const bm=Math.max(...d.bar.map(x=>x[2]),1);
+  document.getElementById('cxBar').innerHTML=d.bar.map((x,i)=>`<div class="brow">
+      <span class="brank">${i+1}</span>
+      <span class="bname" style="width:150px" title="${x[0]}">${x[0]}</span>
+      <div class="bbarw"><div class="bbar" style="width:${(x[2]/bm*100).toFixed(1)}%;background:${d.color}"></div></div>
+      <span class="bcnt" style="color:var(--navy)">${fN(x[2])}</span>
+      <span class="bv">${vChip(x[1],x[2])}</span></div>`).join('');
+  const cp=d.cap;
+  document.getElementById('cxCap').innerHTML=`
+    <div class="mini"><div class="l">Capturas 2026</div><div class="v">${fN(cp[0])}</div></div>
+    <div class="mini"><div class="l">Flagrancia / OJ</div><div class="v">${fN(cp[1])} / ${fN(cp[2])}</div></div>
+    <div class="mini"><div class="l">Promedio diario</div><div class="v">${fN(d.dia,1)}</div></div>`;
+}
+
+function renderHallazgos(){
+  document.getElementById('cxHall').innerHTML=CX.HALL.map((h,i)=>`<div class="acard ${h[0]}">
+    <div class="anum">${String(i+1).padStart(2,'0')}</div>
+    <div class="alev">${h[1]}</div><div class="atit">${h[2]}</div>
+    <div class="abody">${h[3]}</div><div class="amet">${h[4]}</div></div>`).join('');
+}
+
+function renderOperativo(){
+  const O=CX.OP;
+  document.getElementById('opKpi').innerHTML=O.kpi.map(k=>{
+    const dec=String(k[2]).includes('.')?1:0;
+    return `<div class="kpi-card" style="--acc:${k[3]}"><div class="kpi-ico">${k[4]}</div>
+      <div class="kpi-ey">${k[0]}</div><div class="kpi-num">${fN(k[2],dec)}</div>
+      <div class="kpi-lbl">2025: ${fN(k[1],dec)} &nbsp;${vChip(k[1],k[2]).replace('up','eq').replace('dn','eq')}</div>
+      <div class="kpi-sub">${k[5]}</div></div>`;
+  }).join('');
+
+  const c=O.cap;
+  mkChart('opDel',{type:'bar',
+    data:{labels:c.map(x=>x[0]),datasets:[
+      {label:'2025',data:c.map(x=>x[1]),backgroundColor:C25,borderRadius:3},
+      {label:'2026',data:c.map(x=>x[2]),backgroundColor:C26,borderRadius:3}]},
+    options:{indexAxis:'y',responsive:true,maintainAspectRatio:false,
+      plugins:{legend:{display:true,position:'top',align:'end',labels:{boxWidth:10,font:{size:10}}},
+        tooltip:tipOpts({callbacks:{footer:(it)=>{const x=c[it[0].dataIndex];const p=vPct(x[1],x[2]);return `Variación: ${p>0?'+':''}${p}%`;}}})},
+      scales:{x:{beginAtZero:true,grid:{color:'rgba(0,40,85,.08)'}},y:{grid:{display:false},ticks:{font:{size:10}}}}}
+  });
+
+  const m=O.med, tm=m.reduce((a,x)=>a+x[2],0);
+  mkChart('opMed',{type:'doughnut',
+    data:{labels:m.map(x=>x[0]),datasets:[{data:m.map(x=>x[2]),backgroundColor:['#D6534A','#002855','#C8A84B','#0E9F6E'],borderColor:'#fff',borderWidth:2}]},
+    options:{responsive:true,maintainAspectRatio:false,cutout:'60%',
+      plugins:{legend:{display:true,position:'right',labels:{boxWidth:10,font:{size:10}}},
+        tooltip:tipOpts({callbacks:{label:(ct)=>{const x=m[ct.dataIndex];return ` ${x[0]}: ${fN(x[2])} (${Math.round(x[2]/tm*100)}%) · 2025: ${fN(x[1])}`;}}})}}
+  });
+
+  let ta='<tr><th>Allanamientos</th><th>2025</th><th>2026</th><th>Var.</th></tr>';
+  O.allan.forEach((x,i)=>{ ta+=`<tr class="${i===O.allan.length-1?'tot':''}"><td>${x[0]}</td><td>${fN(x[1])}</td><td>${fN(x[2])}</td><td>${vChip(x[1],x[2]).replace('up','eq').replace('dn','eq')}</td></tr>`; });
+  document.getElementById('tbAllan').innerHTML=ta;
+
+  const bm=Math.max(...O.band.map(x=>x[2]),1);
+  document.getElementById('opBand').innerHTML=O.band.map(x=>`<div class="band-row">
+      <span class="n">${x[0]}</span>
+      <div class="bbarw" style="max-width:110px"><div class="bbar" style="width:${(x[2]/bm*100).toFixed(1)}%;background:var(--navy)"></div></div>
+      <span class="x">${fN(x[1])} → <b style="color:var(--navy)">${fN(x[2])}</b></span></div>`).join('');
+
+  let ti='<tr><th>Incautación / recuperación</th><th>2025</th><th>2026</th><th>Var.</th></tr>';
+  O.inc.forEach(x=>{ ti+=`<tr><td>${x[0]}</td><td>${fN(x[1])}</td><td>${fN(x[2])}</td><td>${vChip(x[1],x[2]).replace('up','eq').replace('dn','eq')}</td></tr>`; });
+  document.getElementById('tbInc').innerHTML=ti;
+}
+
+renderTiles(); renderCorte(); renderHallazgos(); renderOperativo();
+</script>
+
 </body>
 </html>
-                                     
